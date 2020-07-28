@@ -136,6 +136,7 @@ table {
 
 .card-body {
     background-color: #171717;
+    padding: 0;
 }
 
 .card-header button:focus {
@@ -144,4 +145,8 @@ table {
 
 .list-group-item:first-child {
     border-top-right-radius: 0px;
+}
+
+canvas {
+    background-color: #fff;
 }
