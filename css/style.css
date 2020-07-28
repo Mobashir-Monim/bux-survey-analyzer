@@ -1,0 +1,147 @@
+body {
+    background-color: #171717;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-custom {
+    background-color: #fff;
+    color: #171717;
+    border-radius: 25px;
+    border: 1px solid white;
+}
+
+.btn-custom:hover {
+    background-color: #171717;
+    color: #fff;
+}
+
+.btn-custom-2 {
+    background-color: #275cab;
+    color: #fff;
+    border-radius: 25px;
+    border: 1px solid white;
+}
+
+.btn-custom-2:hover {
+    background-color: #171717;
+    color: #fff;
+}
+
+input {
+    border-radius: 25px !important;
+    padding: 0px !important;
+}
+
+::-webkit-file-upload-button {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    font-weight: 500;
+    border: 0px;
+    border-right: 1px solid #171717 !important;
+    background-color: #007bff;
+    color: #fff;
+    height: inherit;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+::-webkit-file-upload-button:hover {
+    background-color: #171717;
+    color: #fff;
+}
+
+table {
+    font-size: 80%;
+}
+
+.pane {
+    display: inline-block;
+    overflow-y: scroll;
+    max-height:350px;
+    font-size: 80%;
+}
+
+.headers .pane {
+    display: inline-block;
+    overflow-y: scroll;
+    max-height:100px;
+    font-size: 80%;
+    width: 100%;
+}
+
+.table-responsive::-webkit-scrollbar, table::-webkit-scrollbar {
+    display: none;
+}
+
+.table-responsive, table {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.btn {
+    border-radius: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+.list-group-item {
+    background-color: #343a40;
+    color: white !important;
+}
+
+.tab-content {
+    background-color: #343a40;
+}
+
+.list-group{
+    flex-direction: row;
+}
+
+.list-group-item {
+    font-weight: 500;
+}
+
+.list-group-item .active:hover {
+    color: red !important;
+}
+
+.list-group-item:hover {
+    color: #171717 !important;
+}
+
+.list-group:last-child {
+    border-radius: 0px !important;
+    border-top-right-radius: .25rem !important;
+}
+
+.list-group:first-child {
+    border-top-right-radius: 0px !important;
+}
+
+.list-group {
+    border-top-right-radius: .25rem !important;
+}
+
+.card {
+    border: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.bg-dark {
+    color: white;
+}
+
+.card-body {
+    background-color: #171717;
+}
+
+.card-header button:focus {
+    box-shadow: none !important;
+}
+
+.list-group-item:first-child {
+    border-top-right-radius: 0px;
+}

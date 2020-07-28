@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>buX Survey Analyzer</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row my-4 align-items-center">
+            <div class="col-4 col-sm-2">
+                <img src="img/nav-inv.png" alt="buX-logo" class="img-fluid">
+            </div>
+            <div class="col-8 col-sm">
+                <h2 class="border-bottom d-none d-sm-block">buX Survey Analyzer</h2>
+                <h5 class="border-bottom d-block d-sm-none">buX Survey Analyzer</h5>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <input type="file" name="survey-response" id="survey-response" class="form-control mb-1" accept=".xlsx, .xls">
+                <label for="survey-response" class="col-form-label text-right col-12 pt-0">Survey Response</label>
+                <h4 class="border-bottom mb-0 mt-3">Survey Questions</h4>
+                <div id="survey-response-out"></div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12" id="acceptance-distribution">
+                <h4 class="border-bottom mb-0 hidden">Year-wise acceptance distribution</h4>
+                <div id="acceptance-distribution-out">
+                    <div class="mt-2 spinner-border text-light hidden" role="status"><span class="sr-only">Loading...</span></div>
+                    <canvas id="ywad" class="hidden" width="100%" height="120%" style="background-color: rgba(255, 255, 255, 0.9);"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="list-group bg-dark" id="list-tab" role="tablist" style="border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; border-top-right-radius: .25rem !important;">
+                    <a class="list-group-item list-group-item-action active" id="list-year-wise-list" data-toggle="list" href="#year-wise" role="tab" aria-controls="year-wise" style="border-bottom-right-radius: 0px !important;">Year-wise</a>
+                    <a class="list-group-item list-group-item-action" id="list-course-wise-list" data-toggle="list" href="#course-wise" role="tab" aria-controls="course-wise">Course-wise</a>
+                    <a class="list-group-item list-group-item-action" id="list-dept-wise-list" data-toggle="list" href="#dept-wise" role="tab" aria-controls="dept-wise" style="border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; border-top-right-radius: .25rem !important;">Department-wise</a>
+                </div>
+                <div class="tab-content bg-dark" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="year-wise" role="tabpanel" aria-labelledby="list-year-wise-list">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="headingOne">
+                                    <h2 class="mb-0">
+                                    <button class="btn btn-block text-left text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Collapsible Group Item #1
+                                    </button>
+                                    </h2>
+                                </div>
+                            
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="headingTwo">
+                                    <h2 class="mb-0">
+                                    <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Collapsible Group Item #2
+                                    </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="headingThree">
+                                    <h2 class="mb-0">
+                                    <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Collapsible Group Item #3
+                                    </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="course-wise" role="tabpanel" aria-labelledby="list-course-wise-list">Course-wise</div>
+                    <div class="tab-pane fade" id="dept-wise" role="tabpanel" aria-labelledby="list-dept-wise-list">Dept-wise</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.0/xlsx.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script type="text/javascript">
+        let fileData = null;
+        let yearlySegregation = [];
+        let loadSegregation = [];
+        let deptSegregation = [];
+        let ywad = document.getElementById('ywad').getContext('2d');
+
+        $("input#survey-response").change(function () {
+            readFile('survey-response');
+        });
+
+        function readFile(file) {
+            let fileInput = document.getElementById(file);
+            let out = document.getElementById(file + '-out');
+            out.classList.add('text-center');
+            out.innerHTML = '<div class="mt-2 spinner-border text-light" role="status"><span class="sr-only">Loading...</span></div>';
+            setTimeout(() => {
+                let reader = new FileReader();
+
+                reader.onload = function () {
+                    exelToJSON(reader.result, out);
+                };
+
+                reader.readAsBinaryString(fileInput.files[0]);
+            }, 100);
+        };
+
+        function exelToJSON(data, out) {
+            let cfb = XLSX.read(data, {type: 'binary'});
+                
+            cfb.SheetNames.forEach(function(sheetName) {   
+                let oJS = XLS.utils.sheet_to_json(cfb.Sheets[sheetName]);
+                let result = [];
+                let headers = Object.keys(oJS[0]);
+                let table = '<table class="table table-hover table-dark text-white pane"><thead><tr><th scope="col">Headers</th></tr></thead><tbody>';
+
+                headers.forEach(element => {
+                    table += '<tr><td>' + element + '</td></tr>';
+                });
+
+                table += '</tbody></table>';
+
+                for (let index = 0; index < oJS.length; index++) {
+                    let imm = {};
+
+                    headers.forEach(key => {
+                        imm[key] = oJS[index][key] != undefined ? oJS[index][key].toString() : oJS[index][key];
+                    });
+
+                    result.push(imm);
+                }
+
+                fileData = result;
+                out.innerHTML = table;
+                out.classList.remove('text-center');
+                computeYearwiseAcceptanceDistribution();
+            });
+        }
+
+        function segregate() {
+            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] <= 3 ));
+            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] > 3 && obj["Which semester are you in"] <= 6 ));
+            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] > 6 && obj["Which semester are you in"] <= 9 ));
+            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] > 9 && obj["Which semester are you in"] <= 12 ));
+            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] > 12 ));
+
+            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 1));
+            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 2));
+            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 3));
+            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 4));
+            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 5));
+            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] != 1 || obj["How many courses are you taking?"] != 2|| obj["How many courses are you taking?"] != 3|| obj["How many courses are you taking?"] != 4|| obj["How many courses are you taking?"] != 5));
+
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "CSE"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "BBS"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "MNS"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "EEE"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "ENH"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "Architecture"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "Pharmacy"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "Law"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "BIL"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "BIGD"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "CPJ"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "JPGSPH"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "BIED"));
+            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "C3ER"));
+        }
+
+        function computeAcceptanceDistribution() {
+            let dist = [], classes = ["Strongly agree", "Agree", "Neutral", "Disagree", "Strongly disagree"];
+            
+            classes.forEach(c => {
+                let acceptance = [];
+                yearlySegregation.forEach(year => {
+                    acceptance.push(year.filter(obj => obj["Suppose someone says buX an improvement on Spring 2020's online learning approach. How would you react?"] == c).length);});
+                dist.push(acceptance);
+            });
+
+            new Chart(ywad, {
+                type: 'horizontalBar',
+                data: {
+                    labels: ['Freshman', 'Sophmore', 'Junior', 'Senior', 'Advanced Senior'],
+                    datasets: [{
+                        label: 'Strongly agree', data: dist[0], backgroundColor: 'rgba(75, 192, 192, 0.2)', borderColor: 'rgba(75, 192, 192, 1)', borderWidth: 1},{
+                        label: 'Agree', data: dist[1], backgroundColor: 'rgba(54, 162, 235, 0.2)', borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 1},{
+                        label: 'Neutral', data: dist[2], backgroundColor: 'rgba(255, 206, 86, 0.2)', borderColor: 'rgba(255, 206, 86, 1)', borderWidth: 1},{
+                        label: 'Disagree', data: dist[3], backgroundColor: 'rgba(255, 159, 64, 0.2)', borderColor: 'rgba(255, 159, 64, 1)', borderWidth: 1},{
+                        label: 'Strongly disagree', data: dist[4], backgroundColor: 'rgba(255, 99, 132, 0.2)', borderColor: 'rgba(255, 99, 132, 1)', borderWidth: 1}]
+                },
+            });
+        }
+
+    </script>
+</body>
+</html>
