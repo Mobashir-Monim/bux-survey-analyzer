@@ -1430,7 +1430,7 @@
                 seg.forEach(part => {
                     imm.push(countType(part, q, c, type)); });
                 dist.push(imm); imm = []; });
-            if (hasO) { seg.forEach(part => { imm.push(part.filter(obj => rGenOC(obj, q, classes, type))) }); dist.push(imm); classes.push('Others'); }
+            if (hasO) { seg.forEach(part => { imm.push(part.filter(obj => rGenOC(obj, q, classes, type)).length) }); dist.push(imm); classes.push('Others'); }
             g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}})); classes.remove('Others');
         }
 
