@@ -60,7 +60,7 @@ table {
 .pane {
     display: inline-block;
     overflow-y: scroll;
-    max-height: 50px;
+    max-height: 100px;
     font-size: 80%;
 }
 

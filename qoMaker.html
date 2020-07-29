@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>QO Maker</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row my-4 align-items-center">
+            <div class="col-4 col-sm-2">
+                <img src="img/nav-inv.png" alt="buX-logo" class="img-fluid">
+            </div>
+            <div class="col-8 col-sm">
+                <h2 class="border-bottom d-none d-sm-block">Component Generator</h2>
+                <h5 class="border-bottom d-block d-sm-none">Component Generator</h5>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <input type="file" name="survey-response" id="survey-response" class="form-control mb-1" accept=".xlsx, .xls">
+                <label for="survey-response" class="col-form-label text-right col-12 pt-0">QO Data File</label>
+                <h4 class="border-bottom mb-0 mt-3">QO Data Headers</h4>
+                <div id="survey-response-out"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.0/xlsx.js"></script>
+    <script type="text/javascript">
+        let fileData = null;
+        let result = [];
+        let base = {key:"", func: "", hasO:true, type:"", classes:[]};
+
+        $("input#survey-response").change(function () {
+            readFile('survey-response');
+        });
+
+        function readFile(file) {
+            let fileInput = document.getElementById(file);
+            let out = document.getElementById(file + '-out');
+            out.classList.add('text-center');
+            out.innerHTML = '<div class="mt-2 spinner-border text-light" role="status"><span class="sr-only">Loading...</span></div>';
+            setTimeout(() => {
+                let reader = new FileReader();
+
+                reader.onload = function () {
+                    exelToJSON(reader.result, out);
+                };
+
+                reader.readAsBinaryString(fileInput.files[0]);
+            }, 100);
+        };
+
+        function exelToJSON(data, out) {
+            let cfb = XLSX.read(data, {type: 'binary'});
+                
+            cfb.SheetNames.forEach(function(sheetName) {   
+                let oJS = XLS.utils.sheet_to_json(cfb.Sheets[sheetName]), result = [], headers = Object.keys(oJS[0]);
+                let table = '<table class="table table-hover table-dark text-white pane"><thead><tr><th scope="col">Headers</th></tr></thead><tbody>';
+
+                headers.forEach(element => {
+                    table += '<tr><td>' + element + '</td></tr>';
+                });
+
+                table += '</tbody></table>';
+
+                for (let index = 0; index < oJS.length; index++) {
+                    let imm = {};
+
+                    headers.forEach(key => {
+                        imm[key] = oJS[index][key] != undefined ? oJS[index][key].toString() : oJS[index][key];
+                    });
+
+                    result.push(imm);
+                }
+
+                fileData = result;
+                out.innerHTML = table;
+                generateQO();
+            });
+        }
+
+        function deepCopy(inObject) {
+            let outObject, value, key;
+            if (typeof inObject !== "object" || inObject === null) { return inObject; }
+            outObject = Array.isArray(inObject) ? [] : {};
+            for (key in inObject) { value = inObject[key]; outObject[key] = deepCopy(value); }
+            return outObject;
+        }
+
+        function generateQO() {
+            fileData.forEach(o => {
+                let obj = {
+                            key: o.key,
+                            hasO: o.hasO == "Yes" ? true : false,
+                            func: o.qType == "Radio" ? "rFilter" : "cFilter",
+                            type: o.type,
+                            classes: o.options.split(":")
+                        }
+                result.push(obj);
+            });
+            console.log(JSON.stringify(result));
+        }
+    </script>
+</body>
+</html>

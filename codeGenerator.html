@@ -25,7 +25,7 @@
                 <label for="Question" class="col-form-label text-right col-12 pt-0">Title</label>
             </div>
             <div class="col-md">
-                <input type="number" name="distro" id="distro" class="form-control mb-1">
+                <input type="number" name="distro" id="distro" class="form-control mb-1" value="6">
                 <label for="distro" class="col-form-label text-right col-12 pt-0">Distro</label>
             </div>
             <div class="col-md">
@@ -107,11 +107,94 @@
         }
 
         function generateCode() {
-            $('#yd').val(formatFactory('<div class="card bg-dark"><div class="card-header btn btn-dark" id="yq'+$('#distro').val()+'"><h2 class="mb-0"><button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#yd'+$('#distro').val()+'" aria-expanded="false" aria-controls="yd'+$('#distro').val()+'">'+$('#Question').val()+'</button></h2></div><div id="yd'+$('#distro').val()+'" class="collapse" aria-labelledby="yq'+$('#distro').val()+'" data-parent="#yearly-segregation"><div class="card-body"><canvas id="yd'+$('#distro').val()+'c" class="hidden" width="100%" height="70%"></canvas></div></div></div>'));
-            $('#ld').val(formatFactory('<div class="card bg-dark"><div class="card-header btn btn-dark" id="lq'+$('#distro').val()+'"><h2 class="mb-0"><button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#ld'+$('#distro').val()+'" aria-expanded="false" aria-controls="ld'+$('#distro').val()+'">'+$('#Question').val()+'</button></h2></div><div id="ld'+$('#distro').val()+'" class="collapse" aria-labelledby="lq'+$('#distro').val()+'" data-parent="#load-segregation"><div class="card-body"><canvas id="ld'+$('#distro').val()+'c" class="hidden" width="100%" height="70%"></canvas></div></div></div>'));
-            $('#dd').val(formatFactory('<div class="card bg-dark"><div class="card-header btn btn-dark" id="dq'+$('#distro').val()+'"><h2 class="mb-0"><button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#dd'+$('#distro').val()+'" aria-expanded="false" aria-controls="dd'+$('#distro').val()+'">'+$('#Question').val()+'</button></h2></div><div id="dd'+$('#distro').val()+'" class="collapse" aria-labelledby="dq'+$('#distro').val()+'" data-parent="#dept-segregation"><div class="card-body"><canvas id="dd'+$('#distro').val()+'c" class="hidden" width="100%" height="100%"></canvas></div></div></div>'));
-            $('#context').val("let d"+$('#distro').val()+"c = [document.getElementById('yd"+$('#distro').val()+"c').getContext('2d'), document.getElementById('ld"+$('#distro').val()+"c').getContext('2d'), document.getElementById('dd"+$('#distro').val()+"c').getContext('2d')];");
-            $('#caller').val("d"+$('#distro').val()+"(yearlySegregation, d"+$('#distro').val()+"c[0], yClasses); d"+$('#distro').val()+"(loadSegregation, d"+$('#distro').val()+"c[1], lClasses); d"+$('#distro').val()+"(deptSegregation, d"+$('#distro').val()+"c[2], dClasses);");
+            // $('#yd').val(formatFactory('<div class="card bg-dark"><div class="card-header btn btn-dark" id="yq'+$('#distro').val()+'"><h2 class="mb-0"><button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#yd'+$('#distro').val()+'" aria-expanded="false" aria-controls="yd'+$('#distro').val()+'">REPLACE'+i+'</button></h2></div><div id="yd'+$('#distro').val()+'" class="collapse" aria-labelledby="yq'+$('#distro').val()+'" data-parent="#yearly-segregation"><div class="card-body"><canvas id="yd'+$('#distro').val()+'c" class="hidden" width="100%" height="70%"></canvas></div></div></div>'));
+            // $('#ld').val(formatFactory('<div class="card bg-dark"><div class="card-header btn btn-dark" id="lq'+i+'"><h2 class="mb-0"><button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#ld'+i+'" aria-expanded="false" aria-controls="ld'+i+'">REPLACE'+i+'</button></h2></div><div id="ld'+i+'" class="collapse" aria-labelledby="lq'+i+'" data-parent="#load-segregation"><div class="card-body"><canvas id="ld'+i+'c" class="hidden" width="100%" height="70%"></canvas></div></div></div>'));
+            // $('#dd').val(formatFactory('<div class="card bg-dark"><div class="card-header btn btn-dark" id="dq'+i+'"><h2 class="mb-0"><button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#dd'+i+'" aria-expanded="false" aria-controls="dd'+i+'">REPLACE'+i+'</button></h2></div><div id="dd'+i+'" class="collapse" aria-labelledby="dq'+i+'" data-parent="#dept-segregation"><div class="card-body"><canvas id="dd'+i+'c" class="hidden" width="100%" height="100%"></canvas></div></div></div>'));
+            // $('#context').val("let d"+$('#distro').val()+"c = [document.getElementById('yd"+$('#distro').val()+"c').getContext('2d'), document.getElementById('ld"+$('#distro').val()+"c').getContext('2d'), document.getElementById('dd"+$('#distro').val()+"c').getContext('2d')];");
+            // $('#caller').val("d"+$('#distro').val()+"(yearlySegregation, d"+$('#distro').val()+"c[0], yClasses); d"+$('#distro').val()+"(loadSegregation, d"+$('#distro').val()+"c[1], lClasses); d"+$('#distro').val()+"(deptSegregation, d"+$('#distro').val()+"c[2], dClasses);");
+            str = "";
+
+            for (i = parseInt($('#distro').val()); i <= 31; i++) {
+                console.log(i);
+                str += '<div class="card bg-dark"><div class="card-header btn btn-dark" id="dq'+i+'"><h2 class="mb-0"><button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#dd'+i+'" aria-expanded="false" aria-controls="dd'+i+'">REPLACE'+i+'</button></h2></div><div id="dd'+i+'" class="collapse" aria-labelledby="dq'+i+'" data-parent="#dept-segregation"><div class="card-body"><canvas id="dd'+i+'c" class="hidden" width="100%" height="100%"></canvas></div></div></div>';
+            }
+            $('#dd').val(formatFactory(str));
+            copyCode('dd');
+        }
+
+        function d1(seg, canv, segLabels) {
+            let dist = [], classes = ["Strongly agree", "Agree", "Neutral", "Disagree", "Strongly disagree"];
+            
+            classes.forEach(c => {
+                let imm = [];
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj["Suppose someone says buX an improvement on Spring 2020's online learning approach. How would you react?"] == c).length); });
+                dist.push(imm);});
+
+            d1g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
+        }
+
+        function d2(seg, canv, segLabels) {
+            let dist = [], classes = ["Yes", "No", "I changed my email address in buX to my G-Suite address", "I did not have a G-Suite account then", "I did not receive a G-Suite account yet", 'I could not open buX account yet'];
+            let q = "Did you open your buX account with your G-Suite email? Check all that apply", imm = [];
+            classes.forEach(c => {
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj[q].includes(c)).length);
+                    part.filter(obj => obj[q].includes(c)).forEach(row => {
+                        row[q] = row[q].replace(c, ""); }); });
+                dist.push(imm);
+                imm = []; });
+
+            seg.forEach(part => {
+                part.forEach(row => {
+                    row[q] = row[q].replace(/,/g, "");
+                    row[q] = row[q].replace(/\s+/g, " "); })
+                imm.push(part.filter(obj => obj[q].length > 0).length) });
+            dist.push(imm);
+            classes.push("Other");
+            d2g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
+        }
+
+        function d3(seg, canv, segLabels) {
+            let dist = [], classes = ["Only 1 G-Suite account", "Only 1 non-G-Suite account", "1 G-Suite and 1 non-G-Suite account", "1 G-Suite and multiple non-G-Suite accounts", "Multiple non-G-Suite accounts", "4 accounts", "5 accounts", "6+ accounts", "Could not create buX account yet"];
+            let q = "How many buX accounts did you create? ", imm = [];
+
+            classes.forEach(c => {
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj[q] == c).length); });
+                dist.push(imm);
+                imm = [];
+            });
+
+            d3g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
+        }
+
+        function d4(seg, canv, segLabels) {
+            let dist = [], classes = ["1", "2", "3", "4", "5", "6", "7"];
+            let q = "One a scale of 1-7, how much trouble did you have registering and logging into buX?", imm = [];
+
+            classes.forEach(c => {
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj[q].startsWith(c)).length); });
+                dist.push(imm);
+                imm = [];
+            });
+
+            d4g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
+        }
+
+        function d5(seg, canv, segLabels) {
+            let dist = [], classes = ["Yes, and I had no problems enrolling in my courses", "Yes, but I had some problems enrolling in my courses", "Yes, but I had many problems enrolling in my courses", "No"];
+            let q = "Were you able to enroll in all of your courses? ", imm = [];
+
+            classes.forEach(c => {
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj[q] == c).length); });
+                dist.push(imm);
+                imm = [];
+            });
+
+            d5g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
         }
     </script>
 </body>
