@@ -30,6 +30,9 @@ body {
 
 input {
     border-radius: 25px !important;
+}
+
+input[type="file"] {
     padding: 0px !important;
 }
 
@@ -57,7 +60,7 @@ table {
 .pane {
     display: inline-block;
     overflow-y: scroll;
-    max-height:350px;
+    max-height: 50px;
     font-size: 80%;
 }
 
@@ -137,6 +140,11 @@ table {
 .card-body {
     background-color: #171717;
     padding: 0;
+}
+
+.card-header {
+    padding: 5px 15px;
+    font-weight: 500;
 }
 
 .card-header button:focus {

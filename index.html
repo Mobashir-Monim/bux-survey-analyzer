@@ -27,6 +27,15 @@
                 <div id="survey-response-out"></div>
             </div>
         </div>
+        <!-- <div class="row">
+            <div class="col-md-12">
+                <div class="list-group bg-dark" id="list-tab" role="tablist" style="border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; border-top-right-radius: .25rem !important;">
+                    <a class="list-group-item list-group-item-action active" id="list-year-wise-list" data-toggle="list" href="#year-wise" role="tab" aria-controls="year-wise" style="border-bottom-right-radius: 0px !important;">Original Data</a>
+                    <a class="list-group-item list-group-item-action" id="list-course-wise-list" data-toggle="list" href="#course-wise" role="tab" aria-controls="course-wise">Load-wise</a>
+                    <a class="list-group-item list-group-item-action" id="list-dept-wise-list" data-toggle="list" href="#dept-wise" role="tab" aria-controls="dept-wise" style="border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; border-top-right-radius: .25rem !important;">Normalized Data</a>
+                </div>
+            </div>
+        </div> -->
         <div class="row mb-4">
             <div class="col-md-12">
                 <div class="list-group bg-dark" id="list-tab" role="tablist" style="border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; border-top-right-radius: .25rem !important;">
@@ -39,11 +48,9 @@
                         <div class="accordion" id="yearly-segregation">
                             <div class="card bg-dark">
                                 <div class="card-header btn btn-dark" id="yq1">
-                                    <h2 class="mb-0">
-                                    <button class="btn btn-block text-left text-white" type="button" data-toggle="collapse" data-target="#yd1" aria-expanded="true" aria-controls="yd1">
-                                        buX is a better approach?
-                                    </button>
-                                    </h2>
+                                    <h6 class="mb-0">
+                                        <button class="btn btn-block text-left text-white" type="button" data-toggle="collapse" data-target="#yd1" aria-expanded="true" aria-controls="yd1">buX is a better approach?</button>
+                                    </h6>
                                 </div>
                             
                                 <div id="yd1" class="collapse show" aria-labelledby="yq1" data-parent="#yearly-segregation">
@@ -54,11 +61,9 @@
                             </div>
                             <div class="card bg-dark">
                                 <div class="card-header btn btn-dark" id="yq2">
-                                    <h2 class="mb-0">
-                                    <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#yd2" aria-expanded="false" aria-controls="yd2">
-                                        buX account email
-                                    </button>
-                                    </h2>
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#yd2" aria-expanded="false" aria-controls="yd2">buX account email</button>
+                                    </h6>
                                 </div>
                                 <div id="yd2" class="collapse" aria-labelledby="yq2" data-parent="#yearly-segregation">
                                     <div class="card-body">
@@ -66,17 +71,51 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="yq3">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#yd3" aria-expanded="false" aria-controls="yd3">buX accounts created</button>
+                                    </h6>
+                                </div>
+                                <div id="yd3" class="collapse" aria-labelledby="yq3" data-parent="#yearly-segregation">
+                                    <div class="card-body">
+                                        <canvas id="yd3c" class="hidden" width="100%" height="70%"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="yq4">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#yd4" aria-expanded="false" aria-controls="yd4">Registration Ease</button>
+                                    </h6>
+                                </div>
+                                <div id="yd4" class="collapse" aria-labelledby="yq4" data-parent="#yearly-segregation">
+                                    <div class="card-body">
+                                        <canvas id="yd4c" class="hidden" width="100%" height="70%"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="yq5">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#yd5" aria-expanded="false" aria-controls="yd5">Course Enrollment</button>
+                                    </h6>
+                                </div>
+                                <div id="yd5" class="collapse" aria-labelledby="yq5" data-parent="#yearly-segregation">
+                                    <div class="card-body">
+                                        <canvas id="yd5c" class="hidden" width="100%" height="70%"></canvas>
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>
                     </div>
                     <div class="tab-pane fade" id="course-wise" role="tabpanel" aria-labelledby="list-course-wise-list">
                         <div class="accordion" id="load-segregation">
                             <div class="card bg-dark">
                                 <div class="card-header btn btn-dark" id="lq1">
-                                    <h2 class="mb-0">
-                                    <button class="btn btn-block text-left text-white" type="button" data-toggle="collapse" data-target="#ld1" aria-expanded="true" aria-controls="ld1">
-                                        buX is a better approach?
-                                    </button>
-                                    </h2>
+                                    <h6 class="mb-0">
+                                        <button class="btn btn-block text-left text-white" type="button" data-toggle="collapse" data-target="#ld1" aria-expanded="true" aria-controls="ld1">buX is a better approach?</button>
+                                    </h6>
                                 </div>
                             
                                 <div id="ld1" class="collapse show" aria-labelledby="lq1" data-parent="#load-segregation">
@@ -87,15 +126,49 @@
                             </div>
                             <div class="card bg-dark">
                                 <div class="card-header btn btn-dark" id="lq2">
-                                    <h2 class="mb-0">
-                                    <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#ld2" aria-expanded="false" aria-controls="ld2">
-                                        buX account email
-                                    </button>
-                                    </h2>
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#ld2" aria-expanded="false" aria-controls="ld2">buX account email</button>
+                                    </h6>
                                 </div>
                                 <div id="ld2" class="collapse" aria-labelledby="lq2" data-parent="#load-segregation">
                                     <div class="card-body">
                                         <canvas id="ld2c" class="hidden" width="100%" height="70%"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="lq3">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#ld3" aria-expanded="false" aria-controls="ld3">buX accounts created</button>
+                                    </h6>
+                                </div>
+                                <div id="ld3" class="collapse" aria-labelledby="lq3" data-parent="#load-segregation">
+                                    <div class="card-body">
+                                        <canvas id="ld3c" class="hidden" width="100%" height="70%"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="lq4">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#ld4" aria-expanded="false" aria-controls="ld4">Registration Ease</button>
+                                    </h6>
+                                </div>
+                                <div id="ld4" class="collapse" aria-labelledby="lq4" data-parent="#load-segregation">
+                                    <div class="card-body">
+                                        <canvas id="ld4c" class="hidden" width="100%" height="70%"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="lq5">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#ld5" aria-expanded="false" aria-controls="ld5">Course Enrollment</button>
+                                    </h6>
+                                </div>
+                                <div id="ld5" class="collapse" aria-labelledby="lq5" data-parent="#load-segregation">
+                                    <div class="card-body">
+                                        <canvas id="ld5c" class="hidden" width="100%" height="70%"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -105,30 +178,62 @@
                         <div class="accordion" id="dept-segregation">
                             <div class="card bg-dark">
                                 <div class="card-header btn btn-dark" id="dq1">
-                                    <h2 class="mb-0">
-                                    <button class="btn btn-block text-left text-white" type="button" data-toggle="collapse" data-target="#dd1" aria-expanded="true" aria-controls="dd1">
-                                        buX is a better approach?
-                                    </button>
-                                    </h2>
+                                    <h6 class="mb-0">
+                                        <button class="btn btn-block text-left text-white" type="button" data-toggle="collapse" data-target="#dd1" aria-expanded="true" aria-controls="dd1">buX is a better approach?</button>
+                                    </h6>
                                 </div>
                             
                                 <div id="dd1" class="collapse show" aria-labelledby="dq1" data-parent="#dept-segregation">
                                     <div class="card-body">
-                                        <canvas id="dd1c" class="hidden" width="100%" height="70%"></canvas>
+                                        <canvas id="dd1c" class="hidden" width="100%" height="100%"></canvas>
                                     </div>
                                 </div>
                             </div>
                             <div class="card bg-dark">
                                 <div class="card-header btn btn-dark" id="dq2">
-                                    <h2 class="mb-0">
-                                    <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#dd2" aria-expanded="false" aria-controls="dd2">
-                                        buX account email
-                                    </button>
-                                    </h2>
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#dd2" aria-expanded="false" aria-controls="dd2">buX account email</button>
+                                    </h6>
                                 </div>
                                 <div id="dd2" class="collapse" aria-labelledby="dq2" data-parent="#dept-segregation">
                                     <div class="card-body">
-                                        <canvas id="dd2c" class="hidden" width="100%" height="70%"></canvas>
+                                        <canvas id="dd2c" class="hidden" width="100%" height="100%"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="dq3">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#dd3" aria-expanded="false" aria-controls="dd3">buX accounts created</button>
+                                    </h6>
+                                </div>
+                                <div id="dd3" class="collapse" aria-labelledby="dq3" data-parent="#dept-segregation">
+                                    <div class="card-body">
+                                        <canvas id="dd3c" class="hidden" width="100%" height="100%"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="dq4">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#dd4" aria-expanded="false" aria-controls="dd4">Registration Ease</button>
+                                    </h6>
+                                </div>
+                                <div id="dd4" class="collapse" aria-labelledby="dq4" data-parent="#dept-segregation">
+                                    <div class="card-body">
+                                        <canvas id="dd4c" class="hidden" width="100%" height="100%"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-header btn btn-dark" id="dq5">
+                                    <h6 class="mb-0">
+                                        <button class="btn text-white btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#dd5" aria-expanded="false" aria-controls="dd5">Course Enrollment</button>
+                                    </h6>
+                                </div>
+                                <div id="dd5" class="collapse" aria-labelledby="dq5" data-parent="#dept-segregation">
+                                    <div class="card-body">
+                                        <canvas id="dd5c" class="hidden" width="100%" height="100%"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -146,11 +251,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.0/xlsx.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script type="text/javascript">
+        let barColors = ['75, 192, 192','54, 162, 235','255, 206, 86','255, 159, 64','255, 99, 132','153, 102, 255','23, 23, 23'];
         let fileData = null;
         let yearlySegregation = [], yClasses = ['Freshman', 'Sophmore', 'Junior', 'Senior', 'Advanced Senior'];
-        let loadSegregation = [], lClasses = ['1 Course', '2 Courses', '3 Courses', '4 Courses', '5 Courses', '>= 6 Courses'];
+        let loadSegregation = [], lClasses = ['1 Course', '2 Courses', '3 Courses', '4 Courses', '5 Courses', '>= 6 Courses and others'];
         let deptSegregation = [], dClasses = ['CSE', 'BBS', 'MNS', 'EEE', 'ENH', 'Architecture', 'Pharmacy', 'Law', 'BIL', 'BIGD', 'CPJ', 'JPGSPH', 'BIED', 'C3ER'];
         let d1c = [document.getElementById('yd1c').getContext('2d'), document.getElementById('ld1c').getContext('2d'), document.getElementById('dd1c').getContext('2d')];
+        let d2c = [document.getElementById('yd2c').getContext('2d'), document.getElementById('ld2c').getContext('2d'), document.getElementById('dd2c').getContext('2d')];
+        let d3c = [document.getElementById('yd3c').getContext('2d'), document.getElementById('ld3c').getContext('2d'), document.getElementById('dd3c').getContext('2d')];
+        let d4c = [document.getElementById('yd4c').getContext('2d'), document.getElementById('ld4c').getContext('2d'), document.getElementById('dd4c').getContext('2d')];
+        let d5c = [document.getElementById('yd5c').getContext('2d'), document.getElementById('ld5c').getContext('2d'), document.getElementById('dd5c').getContext('2d')];
+
+        let d1g = [], d2g = [], d3g = [], d4g = [], d5g = [], d6g = [], d7g = [], d8g = [], d9g = [], d10g = [], d11g = [], d12g = [], d13g = [], d14g = [], d15g = [], d16g = [], d17g = [], d18g = [], d19g = [], d20g = [];
 
         $("input#survey-response").change(function () {
             readFile('survey-response');
@@ -176,9 +288,7 @@
             let cfb = XLSX.read(data, {type: 'binary'});
                 
             cfb.SheetNames.forEach(function(sheetName) {   
-                let oJS = XLS.utils.sheet_to_json(cfb.Sheets[sheetName]);
-                let result = [];
-                let headers = Object.keys(oJS[0]);
+                let oJS = XLS.utils.sheet_to_json(cfb.Sheets[sheetName]), result = [], headers = Object.keys(oJS[0]);
                 let table = '<table class="table table-hover table-dark text-white pane"><thead><tr><th scope="col">Headers</th></tr></thead><tbody>';
 
                 headers.forEach(element => {
@@ -204,62 +314,130 @@
             });
         }
 
-        function segregate() {
-            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] <= 3 ));
-            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] > 3 && obj["Which semester are you in"] <= 6 ));
-            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] > 6 && obj["Which semester are you in"] <= 9 ));
-            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] > 9 && obj["Which semester are you in"] <= 12 ));
-            yearlySegregation.push(fileData.filter(obj => obj["Which semester are you in"] > 12 ));
-
-            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 1));
-            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 2));
-            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 3));
-            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 4));
-            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] == 5));
-            loadSegregation.push(fileData.filter(obj => obj["How many courses are you taking?"] != 1 || obj["How many courses are you taking?"] != 2|| obj["How many courses are you taking?"] != 3|| obj["How many courses are you taking?"] != 4|| obj["How many courses are you taking?"] != 5));
-
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "CSE"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "BBS"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "MNS"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "EEE"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "ENH"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "Architecture"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "Pharmacy"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "Law"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "BIL"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "BIGD"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "CPJ"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "JPGSPH"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "BIED"));
-            deptSegregation.push(fileData.filter(obj => obj["Department/School/Institute/Center"] == "C3ER"));
-
-            d1(yearlySegregation, d1c[0], yClasses); d1(loadSegregation, d1c[1], lClasses); d1(deptSegregation, d1c[2], dClasses);
+        function pluck(objs, name) {
+            var sol = [];
+            for(var i in objs){ if(objs[i].hasOwnProperty(name)){ sol.push(objs[i][name]); }}
+            return sol;
         }
 
-        function d1(seg, canv, seglabels) {
+        function deepCopy(inObject) {
+            let outObject, value, key;
+            if (typeof inObject !== "object" || inObject === null) { return inObject; }
+            outObject = Array.isArray(inObject) ? [] : {};
+            for (key in inObject) { value = inObject[key]; outObject[key] = deepCopy(value); }
+            return outObject;
+        }
+
+        function generateDS(dist, classes, length) {
+            let ds = [];
+            for (let index = 0; index < length; index++) { ds.push({label: classes[index], data: dist[index], backgroundColor: 'rgba('+barColors[index%barColors.length]+', 0.2)', borderColor: 'rgba('+barColors[index%barColors.length]+', 1)', borderWidth: 1}); }
+            return ds;
+        }
+
+        function genDSObj(dist, className, index) {
+            return {label: className, data: dist[index], backgroundColor: 'rgba('+barColors[index%barColors.length]+', 0.2)', borderColor: 'rgba('+barColors[index%barColors.length]+', 1)', borderWidth: 1};
+        }
+
+        function segregate() {
+            yearlySegregation.push(deepCopy(fileData.filter(obj => obj["Which semester are you in"] <= 3 )));
+            yearlySegregation.push(deepCopy(fileData.filter(obj => obj["Which semester are you in"] > 3 && obj["Which semester are you in"] <= 6 )));
+            yearlySegregation.push(deepCopy(fileData.filter(obj => obj["Which semester are you in"] > 6 && obj["Which semester are you in"] <= 9 )));
+            yearlySegregation.push(deepCopy(fileData.filter(obj => obj["Which semester are you in"] > 9 && obj["Which semester are you in"] <= 12 )));
+            yearlySegregation.push(deepCopy(fileData.filter(obj => obj["Which semester are you in"] > 12 )));
+
+            loadSegregation.push(deepCopy(fileData.filter(obj => obj["How many courses are you taking?"] == 2)));
+            loadSegregation.push(deepCopy(fileData.filter(obj => obj["How many courses are you taking?"] == 1)));
+            loadSegregation.push(deepCopy(fileData.filter(obj => obj["How many courses are you taking?"] == 3)));
+            loadSegregation.push(deepCopy(fileData.filter(obj => obj["How many courses are you taking?"] == 4)));
+            loadSegregation.push(deepCopy(fileData.filter(obj => obj["How many courses are you taking?"] == 5)));
+            loadSegregation.push(deepCopy(fileData.filter(obj => obj["How many courses are you taking?"] != 1 || obj["How many courses are you taking?"] != 2|| obj["How many courses are you taking?"] != 3|| obj["How many courses are you taking?"] != 4|| obj["How many courses are you taking?"] != 5)));
+
+            dClasses.forEach(dept => { deptSegregation.push(deepCopy(fileData.filter(obj => obj["Department/School/Institute/Center"] == dept)));});
+            analyze();
+        }
+
+        function analyze(params) {
+            d1(yearlySegregation, d1c[0], yClasses); d1(loadSegregation, d1c[1], lClasses); d1(deptSegregation, d1c[2], dClasses);
+            d2(yearlySegregation, d2c[0], yClasses); d2(loadSegregation, d2c[1], lClasses); d2(deptSegregation, d2c[2], dClasses);
+            d3(yearlySegregation, d3c[0], yClasses); d3(loadSegregation, d3c[1], lClasses); d3(deptSegregation, d3c[2], dClasses);
+            d4(yearlySegregation, d4c[0], yClasses); d4(loadSegregation, d4c[1], lClasses); d4(deptSegregation, d4c[2], dClasses);
+            d5(yearlySegregation, d5c[0], yClasses); d5(loadSegregation, d5c[1], lClasses); d5(deptSegregation, d5c[2], dClasses);
+        }
+
+        function d1(seg, canv, segLabels) {
             let dist = [], classes = ["Strongly agree", "Agree", "Neutral", "Disagree", "Strongly disagree"];
             
             classes.forEach(c => {
                 let imm = [];
                 seg.forEach(part => {
-                    imm.push(part.filter(obj => obj["Suppose someone says buX an improvement on Spring 2020's online learning approach. How would you react?"] == c).length);});
-                dist.push(imm);
-            });
+                    imm.push(part.filter(obj => obj["Suppose someone says buX an improvement on Spring 2020's online learning approach. How would you react?"] == c).length); });
+                dist.push(imm);});
 
-            new Chart(canv, {
-                type: 'horizontalBar',
-                data: {
-                    labels: seglabels,
-                    datasets: [{
-                        label: 'Strongly agree', data: dist[0], backgroundColor: 'rgba(75, 192, 192, 0.2)', borderColor: 'rgba(75, 192, 192, 1)', borderWidth: 1},{
-                        label: 'Agree', data: dist[1], backgroundColor: 'rgba(54, 162, 235, 0.2)', borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 1},{
-                        label: 'Neutral', data: dist[2], backgroundColor: 'rgba(255, 206, 86, 0.2)', borderColor: 'rgba(255, 206, 86, 1)', borderWidth: 1},{
-                        label: 'Disagree', data: dist[3], backgroundColor: 'rgba(255, 159, 64, 0.2)', borderColor: 'rgba(255, 159, 64, 1)', borderWidth: 1},{
-                        label: 'Strongly disagree', data: dist[4], backgroundColor: 'rgba(255, 99, 132, 0.2)', borderColor: 'rgba(255, 99, 132, 1)', borderWidth: 1}]
-                },
-            });
+            d1g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
         }
 
+        function d2(seg, canv, segLabels) {
+            let dist = [], classes = ["Yes", "No", "I changed my email address in buX to my G-Suite address", "I did not have a G-Suite account then", "I did not receive a G-Suite account yet", 'I could not open buX account yet'];
+            let q = "Did you open your buX account with your G-Suite email? Check all that apply", imm = [];
+            classes.forEach(c => {
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj[q].includes(c)).length);
+                    part.filter(obj => obj[q].includes(c)).forEach(row => {
+                        row[q] = row[q].replace(c, ""); }); });
+                dist.push(imm);
+                imm = []; });
+
+            seg.forEach(part => {
+                part.forEach(row => {
+                    row[q] = row[q].replace(/,/g, "");
+                    row[q] = row[q].replace(/\s+/g, " "); })
+                imm.push(part.filter(obj => obj[q].length > 0).length) });
+            dist.push(imm);
+            classes.push("Other");
+            d2g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
+        }
+
+        function d3(seg, canv, segLabels) {
+            let dist = [], classes = ["Only 1 G-Suite account", "Only 1 non-G-Suite account", "1 G-Suite and 1 non-G-Suite account", "1 G-Suite and multiple non-G-Suite accounts", "Multiple non-G-Suite accounts", "4 accounts", "5 accounts", "6+ accounts", "Could not create buX account yet"];
+            let q = "How many buX accounts did you create? ", imm = [];
+
+            classes.forEach(c => {
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj[q] == c).length); });
+                dist.push(imm);
+                imm = [];
+            });
+
+            d3g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
+        }
+
+        function d4(seg, canv, segLabels) {
+            let dist = [], classes = ["1", "2", "3", "4", "5", "6", "7"];
+            let q = "One a scale of 1-7, how much trouble did you have registering and logging into buX?", imm = [];
+
+            classes.forEach(c => {
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj[q].startsWith(c)).length); });
+                dist.push(imm);
+                imm = [];
+            });
+
+            d4g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
+        }
+
+        function d5(seg, canv, segLabels) {
+            let dist = [], classes = ["Yes, and I had no problems enrolling in my courses", "Yes, but I had some problems enrolling in my courses", "Yes, but I had many problems enrolling in my courses", "No"];
+            let q = "Were you able to enroll in all of your courses? ", imm = [];
+
+            classes.forEach(c => {
+                seg.forEach(part => {
+                    imm.push(part.filter(obj => obj[q] == c).length); });
+                dist.push(imm);
+                imm = [];
+            });
+
+            d5g.push(new Chart(canv, {type: 'horizontalBar', data: {labels: segLabels, datasets: generateDS(dist, classes, classes.length)}}));
+        }
     </script>
 </body>
 </html>
