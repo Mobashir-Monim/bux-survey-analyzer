@@ -2,11 +2,11 @@ let barColors = ['75, 192, 192','54, 162, 235','255, 206, 86','255, 159, 64','25
 let yearlySegregation = [], yClasses = ['Freshman', 'Sophmore', 'Junior', 'Senior', 'Advanced Senior'];
 let loadSegregation = [], lClasses = ['1 Course', '2 Courses', '3 Courses', '4 Courses', '5 Courses', '>= 6 Courses and others'];
 let deptSegregation = [], dClasses = ['CSE', 'BBS', 'MNS', 'EEE', 'ENH', 'Architecture', 'Pharmacy', 'Law', 'BIL', 'BIGD', 'CPJ', 'JPGSPH', 'BIED', 'C3ER'];
-let d1c = [], d2c = [], d3c = [], d4c = [], d5c = [], d6c = [], d7c = [], d8c = [], d9c = [], d10c = [], d11c = [], d12c = [], d13c = [], d14c = [], d15c = [], d16c = [];
-let d17c = [], d18c = [], d19c = [], d20c = [], d21c = [], d22c = [], d23c = [], d24c = [], d25c = [], d26c = [], d27c = [], d28c = [], d29c = [], d30c = [], d31c = [];
+let d1c = [], d2c = [], d3c = [], d4c = [], d5c = [], d6c = [], d7c = [], d8c = [], d9c = [], d10c = [], d11c = [], d12c = [], d13c = [], d14c = [], d15c = [], d16c = [],
+    d17c = [], d18c = [], d19c = [], d20c = [], d21c = [], d22c = [], d23c = [], d24c = [], d25c = [], d26c = [], d27c = [], d28c = [], d29c = [], d30c = [], d31c = [], d32c = [];
 
 let gs = {d1g:[], d2g:[], d3g:[], d4g:[], d5g:[], d6g:[], d7g:[], d8g:[], d9g:[], d10g:[], d11g:[], d12g:[], d13g:[], d14g:[], d15g:[], d16g:[],
-    d17g:[], d18g:[], d19g:[], d20g:[], d21g:[], d22g:[], d23g:[], d24g:[], d25g:[], d26g:[], d27g:[], d28g:[], d29g:[], d30g:[], d31g:[]};
+            d17g:[], d18g:[], d19g:[], d20g:[], d21g:[], d22g:[], d23g:[], d24g:[], d25g:[], d26g:[], d27g:[], d28g:[], d29g:[], d30g:[], d31g:[], d32g:[]};
 
 let qs = [{normalized:[],crunchedData:[],c:d1c,g:gs.d1g,key:"Suppose someone says buX an improvement on Spring 2020's online learning approach. How would you react?",hasO:false,func:"rFilter",type:"equal",classes:["Strongly disagree","Disagree","Neutral","Agree","Strongly agree"]},
         {normalized:[],crunchedData:[],c:d2c,g:gs.d2g,key:"Did you open your buX account with your G-Suite email? Check all that apply",hasO:true,func:"cFilter",type:"includes",classes:["Yes","No","I changed my email address in buX to my G-Suite address","I did not have a G-Suite account then","I did not receive a G-Suite account yet","I could not open buX account yet"]},
@@ -38,6 +38,8 @@ let qs = [{normalized:[],crunchedData:[],c:d1c,g:gs.d1g,key:"Suppose someone say
         {normalized:[],crunchedData:[],c:d28c,g:gs.d28g,key:"What type of assessments do you prefer for midterm exams? [2nd choice]",hasO:false,func:"rFilter",type:"equal",classes:["Assignment-type midterms","Viva-based midterms","Presentations","Group Project","4 hour time to begin & finish online exam","Proctored exams with webcam monitoring","In class midterms"]},
         {normalized:[],crunchedData:[],c:d29c,g:gs.d29g,key:"What type of assessments do you prefer for midterm exams? [3rd choice]",hasO:false,func:"rFilter",type:"equal",classes:["Assignment-type midterms","Viva-based midterms","Presentations","Group Project","4 hour time to begin & finish online exam","Proctored exams with webcam monitoring","In class midterms"]},
         {normalized:[],crunchedData:[],c:d30c,g:gs.d30g,key:"Online classes requires faculty to trust students.  If someone gave you the answers to an assessment would you violate this trust by cheating on which of the followings?: (This is an anonymous survey)",hasO:false,func:"cFilter",type:"includes",classes:["Ungraded quiz","Graded quiz","Assignment","Midterm","Final","None of the above"]}];
+let qd = [{normalized:[],crunchedData:[],c:d31c,g:gs.d31g,key:"What is the maximum number of hours you can invest per day to attend online classes (lecture videos, mini quizzes etc) without becoming very stressed out?",func:"nFilter",classes:["<2","2","3","4","5","6",">6"]},
+        {normalized:[],crunchedData:[],c:d32c,g:gs.d32g,key:"In your opinion, what do you think should be the minimum \"number of days\" an assignment should be due after the material has been taught?  ",func:"nFilter",classes:["<7", "7", "8-10", "11-14", ">15"]}];
 
 Array.prototype.remove = function() {
     var what, a = arguments, L = a.length, ax;
@@ -54,7 +56,7 @@ function showNew(id) {
 window.onload = function () {
     [["yearly-segregation", "y"], ["load-segregation", 'l'], ["dept-segregation", "d"]].forEach(element => {
         let parent = document.getElementById(element[0]);
-        for (let i = 1; i <= 31; i++) { parent.innerHTML += '<div class="card bg-dark"><div id="'+element[1]+'d'+i+'" class="collapse'+(i == 1 ? ' show':'')+'" aria-labelledby="'+element[1]+'q'+i+'" data-parent="#'+element[0]+'"><div class="card-body"><canvas id="'+element[1]+'d'+i+'c" class="hidden" width="100%" height="'+(element[1] == 'y' ? '70%':(element[1] == 'd' ? '100%':'80%'))+'"></canvas></div></div></div>'; }
+        for (let i = 1; i <= 32; i++) { parent.innerHTML += '<div class="card bg-dark"><div id="'+element[1]+'d'+i+'" class="collapse'+(i == 1 ? ' show':'')+'" aria-labelledby="'+element[1]+'q'+i+'" data-parent="#'+element[0]+'"><div class="card-body"><canvas id="'+element[1]+'d'+i+'c" class="hidden" width="100%" height="'+(element[1] == 'y' ? '70%':(element[1] == 'd' ? '100%':'80%'))+'"></canvas></div></div></div>'; }
     });
     createContexts();
 }
@@ -75,7 +77,7 @@ function createContexts() {
     d25c.push(document.getElementById('yd25c').getContext('2d')),d25c.push(document.getElementById('ld25c').getContext('2d')),d25c.push(document.getElementById('dd25c').getContext('2d')),d26c.push(document.getElementById('yd26c').getContext('2d')),d26c.push(document.getElementById('ld26c').getContext('2d')),d26c.push(document.getElementById('dd26c').getContext('2d'));
     d27c.push(document.getElementById('yd27c').getContext('2d')),d27c.push(document.getElementById('ld27c').getContext('2d')),d27c.push(document.getElementById('dd27c').getContext('2d')),d28c.push(document.getElementById('yd28c').getContext('2d')),d28c.push(document.getElementById('ld28c').getContext('2d')),d28c.push(document.getElementById('dd28c').getContext('2d'));
     d29c.push(document.getElementById('yd29c').getContext('2d')),d29c.push(document.getElementById('ld29c').getContext('2d')),d29c.push(document.getElementById('dd29c').getContext('2d')),d30c.push(document.getElementById('yd30c').getContext('2d')),d30c.push(document.getElementById('ld30c').getContext('2d')),d30c.push(document.getElementById('dd30c').getContext('2d'));
-    d31c.push(document.getElementById('yd31c').getContext('2d')),d31c.push(document.getElementById('ld31c').getContext('2d')),d31c.push(document.getElementById('dd31c').getContext('2d'));
+    d31c.push(document.getElementById('yd31c').getContext('2d')),d31c.push(document.getElementById('ld31c').getContext('2d')),d31c.push(document.getElementById('dd31c').getContext('2d')),d32c.push(document.getElementById('yd32c').getContext('2d')),d32c.push(document.getElementById('ld32c').getContext('2d')),d32c.push(document.getElementById('dd32c').getContext('2d'));
 }
 
 $("input#survey-response").change(function () {
@@ -152,6 +154,18 @@ function countType(part, q, c, type = null) {
     }
 }
 
+function countRange(part, q, c) {
+    if (c.includes('<')) {
+        return part.filter(obj => parseFloat(obj[q]) < parseFloat(c.replace("<", ""))).length;
+    } else if (c.includes('>')) {
+        return part.filter(obj => parseFloat(obj[q]) > parseFloat(c.replace(">", ""))).length;
+    } else if (c.includes('-')) {
+        return part.filter(obj => parseFloat(obj[q]) >= parseFloat(c.split("-")[0]) && parseFloat(obj[q]) <= parseFloat(c.split("-")[1])).length;
+    } else {
+        return part.filter(obj => parseFloat(obj[q]) == parseFloat(c)).length;
+    }
+}
+
 function rGenOC(obj, q, classes, type = null) {
     let result = true;
 
@@ -198,12 +212,15 @@ function segregate() {
     analyze();
 }
 
-function analyze(params) {
+function analyze() {
     qs.forEach(question => {
         window[question.func](yearlySegregation, question.c[0], yClasses, question.key, question.classes, question.g, question.type, question.hasO);
         window[question.func](loadSegregation, question.c[1], lClasses, question.key, question.classes, question.g, question.type, question.hasO);
-        window[question.func](deptSegregation, question.c[2], dClasses, question.key, question.classes, question.g, question.type, question.hasO);
-    });
+        window[question.func](deptSegregation, question.c[2], dClasses, question.key, question.classes, question.g, question.type, question.hasO);});
+    qd.forEach(question => {
+        window[question.func](yearlySegregation, question.c[0], yClasses, question.key, question.classes, question.g);
+        window[question.func](loadSegregation, question.c[1], lClasses, question.key, question.classes, question.g);
+        window[question.func](deptSegregation, question.c[2], dClasses, question.key, question.classes, question.g);});
 }
 
 function rFilter(seg, canv, segLabels, q, classes, g, type, hasO = false) {
@@ -245,6 +262,21 @@ function toggleDataStat(stat) {
             for (let i = 0; i < q.g.length; i++) {
                 q.g[i].data = q[stat][i];
                 q.g[i].update(); }});
+        qd.forEach(q => {
+            for (let i = 0; i < q.g.length; i++) {
+                q.g[i].data = q[stat][i];
+                q.g[i].update(); }});
         document.getElementById(dataStat).classList.remove('active'); document.getElementById(stat).classList.add('active'); dataStat = stat;
     }
+}
+
+function nFilter(seg, canv, segLabels, q, classes, g) {
+    let dist = [], imm = [], target = qd.find(obj => obj.key == q);
+    classes.forEach(c => {
+        seg.forEach(part => {
+            imm.push(countRange(part, q, c)); });
+        dist.push(imm); imm = []; });
+    target.crunchedData.push({labels: segLabels, datasets: generateDS(dist, classes, classes.length)});
+    target.normalized.push({labels: segLabels, datasets: generateDS(normalize(dist, seg), classes, classes.length)});
+    g.push(new Chart(canv, {type: 'horizontalBar', data: target.crunchedData[target.crunchedData.length - 1]}));
 }
