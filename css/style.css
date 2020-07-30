@@ -158,3 +158,21 @@ table {
 canvas {
     background-color: #fff;
 }
+
+select:focus {
+    color: #fff !important;
+    box-shadow: none;
+}
+
+select option {
+    color: #fff !important;
+}
+
+select::-webkit-scrollbar, select::-webkit-scrollbar {
+    display: none;
+}
+
+select {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
