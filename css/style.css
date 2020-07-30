@@ -166,6 +166,8 @@ select:focus {
 
 select option {
     color: #fff !important;
+    font-size: 0.7em !important;
+    font-weight: 500 !important;
 }
 
 select::-webkit-scrollbar, select::-webkit-scrollbar {
@@ -175,4 +177,6 @@ select::-webkit-scrollbar, select::-webkit-scrollbar {
 select {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    font-size: 1.5em !important;
+    font-weight: 500 !important;
 }
